@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import history from '../history';
 
 class GoogleAuth extends Component {
 	state = {isSignedIn: null};
@@ -35,20 +36,25 @@ class GoogleAuth extends Component {
 			return (
 				<button
 					onClick={this.onSignOutClick}
-					className="ui red google button">
+					className="ui red google button"
+				>
 					Sign out
+
 				</button>
-			);
+
+			)
 		} else {
 			return (
 				<button
 					onClick={this.onSignInClick}
 					className="ui red google button"
+
 				>
 					Sign in
 				</button>
 			);
 		}
+
 	};
 
 	render() {

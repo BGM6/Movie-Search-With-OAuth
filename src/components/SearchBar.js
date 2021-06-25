@@ -55,7 +55,7 @@ const SearchBar = ({onSubmitProp}) => {
 		} else {
 			return (
 				<div>
-					Please sign in with google
+					<h3>Please sign in with google to use the search feature</h3>
 				</div>
 			);
 		}

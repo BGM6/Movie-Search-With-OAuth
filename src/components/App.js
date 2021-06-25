@@ -1,10 +1,12 @@
 import {useState, useEffect} from 'react';
 import omdbMovie from './apis/omdbMovie';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {Router, Route} from 'react-router-dom';
 import About from './pages/About';
 import Social from './pages/Social';
 import SearchBar from './SearchBar';
+import ShowMovies from './ShowMovies';
 import Navbar from './Navbar';
+import history from '../history';
 
 const App = () => {
 	const [movies, setMovies] = useState([]);
@@ -21,17 +23,19 @@ const App = () => {
 	console.log(movies);
 	return (
 		<div className="ui container" style={{margin: '1rem'}}>
-			<BrowserRouter>
+			<Router history={history}>
 				<div>
 					<Navbar/>
 					<Route
 						path="/" exact
-						render={props => <SearchBar {...props} onSubmitProp={onTermSearch}/>}/>
+						render={props =>
+							<SearchBar {...props} onSubmitProp={onTermSearch}/>}
+					/>
+					<Route path="/" exact render={props => <ShowMovies {...props} movieList={movies}/>}/>
 					<Route path="/about" component={About}/>
 					<Route path="/social" component={Social}/>
 				</div>
-			</BrowserRouter>
-
+			</Router>
 		</div>
 	);
 };
