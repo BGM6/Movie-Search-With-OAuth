@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import omdbMovie from './apis/omdbMovie';
 import {Router, Route} from 'react-router-dom';
 import About from './pages/About';
@@ -20,7 +20,7 @@ const App = () => {
 		});
 		setMovies(data.Search);
 	};
-	console.log(movies);
+
 	return (
 		<div className="ui container" style={{margin: '1rem'}}>
 			<Router history={history}>

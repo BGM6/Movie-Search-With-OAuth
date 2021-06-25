@@ -19,7 +19,7 @@ const SearchBar = ({onSubmitProp}) => {
 			});
 		};
 		isLogged().then(r => r);
-	});
+	}, []);
 
 	const onAuthChange = () => {
 		const auth = window.gapi.auth2.getAuthInstance();

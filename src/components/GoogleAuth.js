@@ -23,10 +23,13 @@ class GoogleAuth extends Component {
 
 	onSignInClick = () => {
 		this.auth.signIn();
+		history.push('/');
 	};
 
 	onSignOutClick = () => {
 		this.auth.signOut();
+		history.push('/');
+		window.location.reload(true);
 	};
 
 	renderAuthButton = () => {
@@ -39,22 +42,19 @@ class GoogleAuth extends Component {
 					className="ui red google button"
 				>
 					Sign out
-
 				</button>
-
-			)
+			);
 		} else {
 			return (
 				<button
 					onClick={this.onSignInClick}
 					className="ui red google button"
-
 				>
 					Sign in
 				</button>
+
 			);
 		}
-
 	};
 
 	render() {
@@ -65,5 +65,4 @@ class GoogleAuth extends Component {
 		);
 	}
 }
-
 export default GoogleAuth;
