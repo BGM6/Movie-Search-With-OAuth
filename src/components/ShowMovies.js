@@ -1,13 +1,14 @@
 import React from 'react';
 import '../components/style/gridBox.css';
 import {Card} from 'react-bootstrap';
+import Message from './Message';
 
 const ShowMovies = (props) => {
 	let movieInfo;
 	try {
 		movieInfo = props.movieList.map(({Title, imdbID, Year, Poster,}) => {
 			return (
-				<div className="box"  key={imdbID}>
+				<div className="box" key={imdbID}>
 					<Card>
 						<Card.Img id="poster" src={Poster} alt={Title} className="w-100"/>
 						<Card.Body>
@@ -22,12 +23,11 @@ const ShowMovies = (props) => {
 		});
 	} catch (e) {
 		return (
-			<div style={{textAlign: 'center', padding: '3rem'}}>
-				<h3 style={{color: 'black'}}>Sorry, No results found <i className="fas fa-sad-cry"/></h3>
-			</div>
+			<React.Fragment>
+				<Message warning="Sorry, No results found"/>
+			</React.Fragment>
 		);
 	}
-
 	return (
 		<div className="container">{movieInfo}</div>
 	);

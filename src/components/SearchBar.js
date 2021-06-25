@@ -1,5 +1,6 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
+import Message from './Message';
 
 const SearchBar = ({onSubmitProp}) => {
 	const [isSignedIn, setIsSignedIn] = useState(null);
@@ -44,9 +45,9 @@ const SearchBar = ({onSubmitProp}) => {
 							<input
 								onChange={(e) => setTerm(e.target.value)}
 								value={term}
-								style={{width: '200px'}}
+								style={{width: '350px'}}
 								type="text"
-								placeholder="SearchBar..."
+								placeholder="Search movies..."
 							/>
 						</div>
 					</form>
@@ -54,9 +55,9 @@ const SearchBar = ({onSubmitProp}) => {
 			);
 		} else {
 			return (
-				<div>
-					<h3>Please sign in with google to use the search feature</h3>
-				</div>
+				<React.Fragment>
+					<Message warning="Please sign in with google to use the search feature"/>
+				</React.Fragment>
 			);
 		}
 	};

@@ -1,3 +1,4 @@
+import '../components/style/style.css';
 import {useState} from 'react';
 import omdbMovie from './apis/omdbMovie';
 import {Router, Route} from 'react-router-dom';
