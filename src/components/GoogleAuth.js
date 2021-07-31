@@ -33,28 +33,36 @@ class GoogleAuth extends Component {
 	};
 
 
-renderAuthButton = () => {
-	if (this.state.isSignedIn === null) {
-	} else if (this.state.isSignedIn) {
-		return (
-			<button
-				onClick={this.onSignOutClick}
-				className="ui red google button"
-			>
-				Sign out
-			</button>
-		);
-	} else {
-		return (
-			<button
-				onClick={this.onSignInClick}
-				className="ui red google button"
-			>
-				Sign in
-			</button>
-		);
-	}
-};
+	renderAuthButton = () => {
+		if (this.state.isSignedIn === null) {
+			return (
+				<button
+					onClick={this.onSignInClick}
+					className="ui red google button"
+				>
+					Sign in
+				</button>
+			);
+		} else if (this.state.isSignedIn) {
+			return (
+				<button
+					onClick={this.onSignOutClick}
+					className="ui red google button"
+				>
+					Sign out
+				</button>
+			);
+		} else {
+			return (
+				<button
+					onClick={this.onSignInClick}
+					className="ui red google button"
+				>
+					Sign in
+				</button>
+			);
+		}
+	};
 
 	render() {
 		console.log(this.state.isSignedIn);
